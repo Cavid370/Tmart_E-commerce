@@ -1,0 +1,441 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-25 14:52+0400\n"
+"PO-Revision-Date: 2022-09-25 14:55+0000\n"
+"Last-Translator: Cavid Musayev <cavid@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\Tmart\settings.py:139
+msgid "English"
+msgstr "İngilis"
+
+#: .\Tmart\settings.py:140
+msgid "Azerbaijan"
+msgstr "Azərbaycan "
+
+#: .\templates\includes\footer.html:56
+#| msgid "Browse Categories"
+msgid "Categories"
+msgstr "Kateqoriyaları nəzərdən keçirin"
+
+#: .\templates\includes\footer.html:58
+msgid "Men"
+msgstr "Kişilər"
+
+#: .\templates\includes\footer.html:59
+msgid "Women"
+msgstr "Qadınlar"
+
+#: .\templates\includes\footer.html:60
+#| msgid " all Accessories"
+msgid "Accessories"
+msgstr "Bütün aksesuarlar"
+
+#: .\templates\includes\footer.html:61
+msgid "Shoes"
+msgstr "Ayaqqabılar"
+
+#: .\templates\includes\footer.html:62 .\templates\index.html:128
+msgid "Dress"
+msgstr "Don"
+
+#: .\templates\includes\footer.html:63
+msgid "Denim"
+msgstr "Cins"
+
+#: .\templates\includes\footer.html:70
+msgid "Infomation"
+msgstr "İnformasiya"
+
+#: .\templates\includes\footer.html:72
+#| msgid "About"
+msgid "About Us"
+msgstr "Haqqımızda"
+
+#: .\templates\includes\footer.html:73 .\templates\includes\footer.html:120
+#| msgid "Contact"
+msgid "Contact Us"
+msgstr "Əlaqə"
+
+#: .\templates\includes\footer.html:74
+msgid "Terms & Conditions"
+msgstr "Şərtlər və qaydalar"
+
+#: .\templates\includes\footer.html:75
+msgid "Returns & Exchanges"
+msgstr "Qaytarma və Mübadilə"
+
+#: .\templates\includes\footer.html:76
+msgid "Shipping & Delivery"
+msgstr "Çatdırılma"
+
+#: .\templates\includes\footer.html:77
+msgid "Privacy Policy"
+msgstr "Gizlilik Siyasəti"
+
+#: .\templates\includes\footer.html:84
+msgid "Newsletter"
+msgstr "Xəbər bülleteni"
+
+#: .\templates\includes\footer.html:86
+#, python-format
+msgid "Subscribe to our newsletter and get 10%% off your first purchase ."
+msgstr "Bülletenimizə abunə olun və ilk alışınıza 10% endirim qazanın."
+
+#: .\templates\includes\footer.html:115
+msgid "All Right Reserved."
+msgstr "Bütün haqqlar qorunur"
+
+#: .\templates\includes\footer.html:118 .\templates\includes\navbar.html:20
+#: .\templates\includes\navbar.html:56
+msgid "Home"
+msgstr "Əsas səhifə"
+
+#: .\templates\includes\footer.html:119 .\templates\index.html:2338
+msgid "Product"
+msgstr "Məhsul"
+
+#: .\templates\includes\navbar.html:28 .\templates\includes\navbar.html:57
+#: .\templates\includes\navbar.html:59
+msgid "Blog"
+msgstr "Bloq"
+
+#: .\templates\includes\navbar.html:30 .\templates\includes\navbar.html:36
+#: .\templates\includes\navbar.html:67
+msgid "Shop"
+msgstr "Alış-veriş"
+
+#: .\templates\includes\navbar.html:32
+msgid "Pages"
+msgstr "Səhifələr"
+
+#: .\templates\includes\navbar.html:34 .\templates\includes\navbar.html:65
+msgid "About"
+msgstr "Haqqımızda"
+
+#: .\templates\includes\navbar.html:35 .\templates\includes\navbar.html:66
+msgid "Customer review"
+msgstr "İsdifadəçi rəyləri"
+
+#: .\templates\includes\navbar.html:37 .\templates\includes\navbar.html:68
+msgid "Cart"
+msgstr "Səbət"
+
+#: .\templates\includes\navbar.html:38 .\templates\includes\navbar.html:69
+msgid "Wishlist"
+msgstr "İstək listəsi"
+
+#: .\templates\includes\navbar.html:39 .\templates\includes\navbar.html:70
+#: .\templates\includes\navbar.html:235
+msgid "Checkout"
+msgstr "Yoxlanış"
+
+#: .\templates\includes\navbar.html:40 .\templates\includes\navbar.html:71
+msgid "Team"
+msgstr "Heyət"
+
+#: .\templates\includes\navbar.html:43 .\templates\includes\navbar.html:87
+msgid "Log out"
+msgstr "Çıxış et"
+
+#: .\templates\includes\navbar.html:45
+msgid "Sign in"
+msgstr "Daxil ol"
+
+#: .\templates\includes\navbar.html:50 .\templates\includes\navbar.html:75
+msgid "Contact"
+msgstr "Əlaqə"
+
+#: .\templates\includes\navbar.html:60
+msgid "Blog details"
+msgstr "Bloq detalları"
+
+#: .\templates\includes\navbar.html:72
+msgid "Login & register"
+msgstr "Daxil olma & Qeydiyyat"
+
+#: .\templates\includes\navbar.html:154
+msgid "Language"
+msgstr "Dil"
+
+#: .\templates\includes\navbar.html:165
+msgid "Currencies"
+msgstr "Valyuta"
+
+#: .\templates\includes\navbar.html:174
+msgid "Follow Us On Social"
+msgstr "Bizi sosial şəbəkədən izlə"
+
+#: .\templates\includes\navbar.html:230
+msgid "Subtotal:"
+msgstr "Ümumi məbləğ"
+
+#: .\templates\index.html:21 .\templates\index.html:38
+msgid "New Product"
+msgstr "Yeni Məhsul"
+
+#: .\templates\index.html:21 .\templates\index.html:38
+msgid "Collection"
+msgstr "Kolleksiya"
+
+#: .\templates\index.html:23
+msgid "Shop now"
+msgstr "Alış-veriş et"
+
+#: .\templates\index.html:40
+msgid "shop now"
+msgstr "İndi al"
+
+#: .\templates\index.html:55
+msgid "Browse Categories"
+msgstr "Kateqoriyaları nəzərdən keçirin"
+
+#: .\templates\index.html:59
+msgid "Women’s Clothing"
+msgstr "Qadın paltarları"
+
+#: .\templates\index.html:63 .\templates\index.html:67
+#: .\templates\index.html:73 .\templates\index.html:77
+#: .\templates\index.html:83 .\templates\index.html:87
+#: .\templates\index.html:93 .\templates\index.html:97
+#: .\templates\index.html:108 .\templates\index.html:112
+#: .\templates\index.html:118 .\templates\index.html:122
+#: .\templates\index.html:132 .\templates\index.html:149
+#: .\templates\index.html:153 .\templates\index.html:159
+#: .\templates\index.html:163 .\templates\index.html:169
+#: .\templates\index.html:173 .\templates\index.html:195
+#: .\templates\index.html:200 .\templates\index.html:204
+#: .\templates\index.html:210 .\templates\index.html:214
+#: .\templates\index.html:224 .\templates\index.html:230
+#: .\templates\index.html:234 .\templates\index.html:252
+#: .\templates\index.html:264
+msgid "Jewelry & Watches"
+msgstr "Zinət əşyaları və saatlar"
+
+#: .\templates\index.html:65 .\templates\index.html:75
+#: .\templates\index.html:85 .\templates\index.html:95
+#: .\templates\index.html:110 .\templates\index.html:120
+#: .\templates\index.html:130 .\templates\index.html:151
+#: .\templates\index.html:161 .\templates\index.html:171
+#: .\templates\index.html:202 .\templates\index.html:212
+#: .\templates\index.html:222 .\templates\index.html:232
+#: .\templates\index.html:247 .\templates\index.html:254
+#: .\templates\index.html:266
+msgid "Men’s Clothing"
+msgstr "Kişi paltarları"
+
+#: .\templates\index.html:66 .\templates\index.html:76
+#: .\templates\index.html:86 .\templates\index.html:96
+#: .\templates\index.html:111 .\templates\index.html:121
+#: .\templates\index.html:131 .\templates\index.html:144
+#: .\templates\index.html:152 .\templates\index.html:162
+#: .\templates\index.html:172 .\templates\index.html:203
+#: .\templates\index.html:213 .\templates\index.html:223
+#: .\templates\index.html:233 .\templates\index.html:259
+#: .\templates\index.html:267 .\templates\index.html:271
+msgid "Computer & Office"
+msgstr "Kompüter və offis"
+
+#: .\templates\index.html:68 .\templates\index.html:78
+#: .\templates\index.html:88 .\templates\index.html:98
+#: .\templates\index.html:113 .\templates\index.html:123
+#: .\templates\index.html:133 .\templates\index.html:154
+#: .\templates\index.html:164 .\templates\index.html:174
+#: .\templates\index.html:205 .\templates\index.html:215
+#: .\templates\index.html:225 .\templates\index.html:235
+#: .\templates\index.html:257
+msgid "Bags & Shoes"
+msgstr "Çantalar və ayaqqabılar"
+
+#: .\templates\index.html:69 .\templates\index.html:79
+#: .\templates\index.html:89 .\templates\index.html:99
+#: .\templates\index.html:114 .\templates\index.html:124
+#: .\templates\index.html:134 .\templates\index.html:155
+#: .\templates\index.html:175 .\templates\index.html:206
+#: .\templates\index.html:216 .\templates\index.html:226
+#: .\templates\index.html:236 .\templates\index.html:272
+msgid "Phones & Accessories"
+msgstr "Telefon və aksesuarlar"
+
+#: .\templates\index.html:104
+msgid " Man Fashion"
+msgstr "Kişi Modası"
+
+#: .\templates\index.html:165 .\templates\index.html:260
+msgid " Phones & Accessories"
+msgstr "Telefon və aksesuarlar"
+
+#: .\templates\index.html:220 .\templates\index.html:256
+#: .\templates\index.html:268 .\templates\index.html:288
+msgid " Jewelry & Watches"
+msgstr "Zinət əşyaları və qol saatları"
+
+#: .\templates\index.html:255
+msgid " Computer & Office"
+msgstr "Kompüter və offis"
+
+#: .\templates\index.html:258
+msgid " Phones "
+msgstr "Telefonlar"
+
+#: .\templates\index.html:269 .\templates\index.html:283
+msgid " Bags & Shoes"
+msgstr "Çanta və ayaqqabılar"
+
+#: .\templates\index.html:270
+msgid "Phones "
+msgstr "Telefonlar"
+
+#: .\templates\index.html:285
+msgid " Toys & Kids & Baby"
+msgstr "Uşaqlar & Köpələr & Oyuncaqlar"
+
+#: .\templates\index.html:286
+msgid " Automobiles "
+msgstr "Avtomobillər"
+
+#: .\templates\index.html:289
+msgid " Consumer Electronics"
+msgstr "İstehlak elektronikası"
+
+#: .\templates\index.html:290
+msgid " all Accessories"
+msgstr "Bütün aksesuarlar"
+
+#: .\templates\index.html:315
+msgid "Jewelry & watches"
+msgstr "Zinət əşyaları və saatlar"
+
+#: .\templates\index.html:319 .\templates\index.html:1037
+#: .\templates\index.html:1848
+msgid "Awesome Rings"
+msgstr "Üzüklər"
+
+#: .\templates\index.html:320 .\templates\index.html:1038
+#: .\templates\index.html:1849
+msgid "Hot Earrings"
+msgstr "Sırğalar"
+
+#: .\templates\index.html:321 .\templates\index.html:1039
+#: .\templates\index.html:1850
+msgid "Jewelry Sets"
+msgstr "Zinət Dəstləri"
+
+#: .\templates\index.html:322 .\templates\index.html:1040
+#: .\templates\index.html:1851
+msgid "Beads Jewelry"
+msgstr "Muncuq əşyalar"
+
+#: .\templates\index.html:323 .\templates\index.html:1041
+#: .\templates\index.html:1852
+msgid "Men's Watches"
+msgstr "Kişi qol saatları"
+
+#: .\templates\index.html:324 .\templates\index.html:1042
+#: .\templates\index.html:1853
+msgid "Women’s Watches"
+msgstr "Qadın qol saatları"
+
+#: .\templates\index.html:325 .\templates\index.html:1043
+#: .\templates\index.html:1854
+msgid "Popular Bracelets"
+msgstr "Məşhur qolbağlar"
+
+#: .\templates\index.html:326
+msgid " Pendant Necklaces"
+msgstr "Kolyelər"
+
+#: .\templates\index.html:327 .\templates\index.html:1045
+#: .\templates\index.html:1856
+msgid "Children's Watches"
+msgstr "Uşaq qol saatları"
+
+#: .\templates\index.html:340 .\templates\index.html:1058
+#: .\templates\index.html:1869
+msgid "Latest"
+msgstr "Sonuncular"
+
+#: .\templates\index.html:347
+msgid "best sale "
+msgstr "Ən çox satılanlar"
+
+#: .\templates\index.html:354
+msgid "top rated"
+msgstr "Yüksək qiymətləndirilən"
+
+#: .\templates\index.html:361
+msgid "on sale"
+msgstr "Satışda"
+
+#: .\templates\index.html:394 .\templates\index.html:425
+#: .\templates\index.html:456 .\templates\index.html:487
+#: .\templates\index.html:518 .\templates\index.html:555
+#: .\templates\index.html:586 .\templates\index.html:617
+#: .\templates\index.html:648 .\templates\index.html:679
+#: .\templates\index.html:716 .\templates\index.html:747
+#: .\templates\index.html:778 .\templates\index.html:809
+#: .\templates\index.html:840 .\templates\index.html:877
+msgid "Simple Black Clock"
+msgstr "Sadə qara qol saatı"
+
+#: .\templates\index.html:1033
+msgid "BAGS & SHOES"
+msgstr "Çanta və ayaqqabılar"
+
+#: .\templates\index.html:1044 .\templates\index.html:1855
+msgid "Pendant Necklaces"
+msgstr "Kolyelər"
+
+#: .\templates\index.html:1065 .\templates\index.html:1876
+msgid "Best sale "
+msgstr "Ən çox satılanlar"
+
+#: .\templates\index.html:1072 .\templates\index.html:1883
+msgid "Top rated"
+msgstr "Yüksək qiymətləndirilənlər"
+
+#: .\templates\index.html:1079 .\templates\index.html:1890
+msgid "On sale"
+msgstr "Satışda"
+
+#: .\templates\index.html:1844
+msgid "Kids & MOTHER"
+msgstr "Uşaqlar və analar"
+
+#: .\templates\index.html:1896
+msgid "all"
+msgstr "Hamsı"
+
+#: .\templates\index.html:2309
+msgid "Latest News"
+msgstr "Sonuncular"
+
+#: .\templates\index.html:2337
+msgid "By :"
+msgstr "Tərəfindən"
+
+#: .\templates\index.html:2341
+msgid "Read more"
+msgstr "Daha çox "
+
+#: .\templates\index.html:2401
+msgid "Admin"
+msgstr "Admin"
+
+#: .\templates\index.html:2405
+msgid "read more"
+msgstr "Daha çox"

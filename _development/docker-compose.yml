@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  db:
+      image: postgres:13
+      
+      ports:
+        - 5432:5432
+      restart: always
+      volumes:
+      - dbdata:/var/lib/postgresql/data
+      env_file:
+      - ./.env    
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+    command: redis-server
+    volumes:
+      - redisdata:/data
+    env_file:
+      - ./.env  
+  
+volumes:
+  dbdata:
+  redisdata:
+    external: false

@@ -1,0 +1,202 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Start Bradcaump area -->
+<div class="ht__bradcaump__area"
+    style="background: rgba(0, 0, 0, 0) url({% static 'images/bg/2.jpg' %}) no-repeat scroll center center / cover ;">
+    <div class="ht__bradcaump__wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="bradcaump__inner text-center">
+                        <h2 class="bradcaump-title">Shop page</h2>
+                        <nav class="bradcaump-inner">
+                            <a class="breadcrumb-item" href="{% url 'index' %}">Home</a>
+                            <span class="brd-separetor">/</span>
+                            <span class="breadcrumb-item active">Shop page</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Bradcaump area -->
+<!-- Start Our Product Area -->
+<section class="htc__product__area shop__page ptb--130 bg__white">
+    <div class="container">
+        <div class="htc__product__container">
+            <!-- Start Product MEnu -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="filter__menu__container">
+                        <div class="product__menu">
+                            <button data-filter="*" onclick="window.location.href= '{% url 'product' %}' ">All</button>
+                            {% for tag in tags %}
+                            <button data-filter=".cat--1"
+                                onclick="window.location.href= '{% url 'product' %}?tag={{tag.name}}' ">{{tag}}</button>
+                            {% endfor %}
+                            <!-- <ul class="filter__list">
+                                {% for tag in tags %}
+                                <li><a href="" class="tag_selector">{{tag}}</a></li>
+                                {% endfor %}
+                            </ul> -->
+
+                        </div>
+                        <div class="filter__box">
+                            <a class="filter__menu" href="#">filter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Filter Menu -->
+            <div class="filter__wrap">
+                <div class="filter__cart">
+                    <div class="filter__cart__inner">
+                        <div class="filter__menu__close__btn">
+                            <a href="#"><i class="zmdi zmdi-close"></i></a>
+                        </div>
+                        <div class="filter__content">
+                            <!-- Start Single Content -->
+                            <div class="fiter__content__inner">
+                                <div class="single__filter">
+                                    <h2>Sort By</h2>
+                                    <ul class="filter__list">
+                                        {% for tag in tags %}
+                                        <li><a href="{% url 'product' %}?tag={{tag.name}}"
+                                                class="tag_selector">{{tag.name}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="single__filter">
+                                    <h2>Size</h2>
+                                    <ul class="filter__list">
+                                        <li><a href="#xxl">XXL</a></li>
+                                        <li><a href="#xl">XL</a></li>
+                                        <li><a href="#x">X</a></li>
+                                        <li><a href="#l">L</a></li>
+                                        <li><a href="#m">M</a></li>
+                                        <li><a href="#s">S</a></li>
+                                    </ul>
+                                </div>
+                                <div class="single__filter">
+                                    <h2>Tags</h2>
+                                    <ul class="filter__list">
+                                        {% for tag in tags %}
+                                        <li><a href="{% url 'product' %}?tag={{tag.name}}"
+                                                class="tag_selector">{{tag.name}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="single__filter">
+                                    <h2>Price</h2>
+                                    <ul class="filter__list">
+                                        <li><a href="#">$0.00 - $50.00</a></li>
+                                        <li><a href="#">$50.00 - $100.00</a></li>
+                                        <li><a href="#">$100.00 - $150.00</a></li>
+                                        <li><a href="#">$150.00 - $200.00</a></li>
+                                        <li><a href="#">$300.00 - $500.00</a></li>
+                                        <li><a href="#">$500.00 - $700.00</a></li>
+                                    </ul>
+                                </div>
+                                <div class="single__filter">
+                                    <h2>Color</h2>
+                                    <ul class="filter__list sidebar__list">
+                                        <li class="black"><a href="#"><i class="zmdi zmdi-circle"></i>Black</a></li>
+                                        <li class="blue"><a href="#"><i class="zmdi zmdi-circle"></i>Blue</a></li>
+                                        <li class="brown"><a href="#"><i class="zmdi zmdi-circle"></i>Brown</a></li>
+                                        <li class="red"><a href="#"><i class="zmdi zmdi-circle"></i>Red</a></li>
+                                        <li class="orange"><a href="#"><i class="zmdi zmdi-circle"></i>Orange</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Single Content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Filter Menu -->
+            <!-- End Product MEnu -->
+            <div class="row">
+                <div class="product__list another-product-style">
+                    {% for product in products %}
+
+                    <div class="col-md-3 single__pro col-lg-3 cat--1 col-sm-4 col-xs-12">
+                        <div class="product foo">
+                            <div class="product__inner">
+                                <div class="pro__thumb">
+                                    <a href="{% url 'product_detail' product.slug %}">
+                                        <img src="{{ product.img.url }}" alt="product images">
+                                    </a>
+                                </div>
+                                <div class="product__hover__info">
+                                    <ul class="product__action">
+                                        <li class="added_product"><a data-toggle="modal" data-target="#productModal"
+                                                title="Quick View" class="quick-view modal-view detail-link"
+                                                href="#"><span class="ti-plus"></span></a></li>
+                                        <li onclick = "functionAddToBasket($(this).attr('data'))" type="button" data="{{ product.pk }}" id = 'qty' value="1"><a title="Add TO Cart" href="#" ><span
+                                                    class="ti-shopping-cart"></span></a></li>
+                                        <li onclick="functionAddToWishlist($(this).attr('data'))"  id="add-wishlist" data="{{ product.pk }}" ><a title="Wishlist"><span class="ti-heart"></span></a>
+    
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product__details">
+                                <h2><a href="{% url 'product_detail' product.slug %}" id='product-name'>{{ product.name }}</a></h2>
+                                <ul class="product__price">
+                                    {%if product.old_price %}
+                                    <li class="old__price">$ {{ product.old_price|floatformat:2 }}</li>
+                                    {% endif %}
+                                    <li class="new__price">$ {{ product.new_price|floatformat:2 }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                    <!-- <div class="products_with_tag"></div> -->
+                    <!-- Start Single Product -->
+                </div>
+                <!-- Start Load More BTn -->
+                <div class="row mt--60">
+                    <div class="col-md-12">
+                        <div class="htc__loadmore__btn">
+                            <a href="#">load more</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Load More BTn -->
+            </div>
+        </div>
+</section>
+<!-- Body main wrapper end -->
+<!-- QUICKVIEW PRODUCT -->
+<div id="quickview-wrapper">
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal__container" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body" id="post-modal">
+
+                </div><!-- .modal-content -->
+            </div><!-- .modal-dialog -->
+        </div>
+        <!-- END Modal -->
+    </div>
+    {% endblock content %}
+    {% block js %}
+    <script src="{% static 'js/subscribe_email.js'%}"></script>
+    <script src="{% static 'js/product_fetch.js'%}"></script>
+    <script src="{% static 'js/tags_fetch.js'%}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/wishlist.js'%}"></script>
+    <script src="{% static 'js/cart.js'%}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    {% endblock js %}

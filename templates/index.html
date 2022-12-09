@@ -1,0 +1,765 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+<!-- Start Feature Product -->
+<section class="categories-slider-area bg__white">
+    <div class="container">
+        <div class="row">
+            <!-- Start Left Feature -->
+            <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 float-left-style">
+                <!-- Start Slider Area -->
+                <div class="slider__container slider--one">
+                    <div class="slider__activation__wrap owl-carousel owl-theme">
+                        <!-- Start Single Slide -->
+                        <div class="slide slider__full--screen slider-height-inherit slider-text-right"
+                            style="background: rgba(0, 0, 0, 0) url({% static 'images/slider/bg/1.png' %}) no-repeat scroll center center / cover ;">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-10 col-lg-8 col-md-offset-2 col-lg-offset-4 col-sm-12 col-xs-12">
+                                        <div class="slider__inner">
+                                            <h1>{% trans "New Product" %}<span class="text--theme">{% trans "Collection"%}</span></h1>
+                                            <div class="slider__btn">
+                                                <a class="htc__btn" href="{% url 'product' %}">{% trans "Shop now"%}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Slide -->
+                        <!-- Start Single Slide -->
+                        <div class="slide slider__full--screen slider-height-inherit  slider-text-left"
+                            style="background: rgba(0, 0, 0, 0) url({% static 'images/slider/bg/2.png' %}) no-repeat scroll center center / cover ;">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                                        <div class="slider__inner">
+                                            <h1>{% trans "New Product" %} <span class="text--theme">{% trans "Collection" %}</span></h1>
+                                            <div class="slider__btn">
+                                                <a class="htc__btn" href="{% url 'cart'%}">{% trans "shop now" %}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Slide -->
+                    </div>
+                </div>
+                <!-- Start Slider Area -->
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12 float-right-style">
+                <div class="categories-menu mrg-xs">
+                    <div class="category-heading">
+                        <h3>{% trans "Browse Categories" %}</h3>
+                    </div>
+                    <div class="category-menu-list">
+                        <ul>
+                            {% for category in categories %}
+                            
+                            {% if category.is_navbar %}
+                            
+                            <li>
+                                
+                                <a href="{% url 'product' %}?category={{category.category_name}}">
+                                    <img alt="" src="{{category.img.url}}">{{category.category_name}}
+                                    {% if category.have_child %}
+                                    <i class="zmdi zmdi-chevron-right"></i>
+                                    {%endif%}
+                                </a>
+                                {% if category.have_child %}
+                                <div class="category-menu-dropdown">
+                                    <div class="category-part-1 category-common mb--30">
+                                        <h4 class="categories-subtitle">{{category.category_name}}</h4>
+                                        <ul>
+                                            {% for sub_category in categories %}
+                                            {% if sub_category.parent_category_name == category %}
+                                            <li><a
+                                                    href="{% url 'product' %}?category={{sub_category.category_name}}">{{sub_category.category_name}}</a>
+                                            </li>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Left Feature -->
+        </div>
+    </div>
+</section>
+<!-- End Feature Product -->
+<div class="only-banner ptb--100 bg__white">
+    <div class="container">
+        <div class="only-banner-img">
+            <a href="{% url 'product' %}"><img src="{% static 'images/new-product/3.jpg' %}" alt="new product"></a>
+        </div>
+    </div>
+</div>
+<!-- Start Our Product Area -->
+<section class="htc__product__area bg__white">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="product-categories-all">
+                    {% for category in categories %}
+
+                    {% if category.category_name == "Jewelry & watches" or category.category_name == "Zinət əşyaları və saatlar" %}
+
+                    <div class="product-categories-title">
+                        <h3>{{category.category_name}}</h3>
+                    </div>
+                    <div class="product-categories-menu">
+                        <ul>
+                            {% for sub_category in categories %}
+                            {% if sub_category.parent_category_name == category %}
+                            <li><a
+                                    href="{% url 'product' %}?category={{sub_category.category_name}}">{{sub_category.category_name}}</a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="product-style-tab">
+                    <div class="product-tab-list">
+                        <!-- Nav tabs -->
+                        <ul class="tab-style" role="tablist">
+                            <li class="active">
+                                <a href="#home1" data-toggle="tab">
+                                    <div class="tab-menu-text">
+                                        <h4>{% trans "Latest " %}</h4>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#home2" data-toggle="tab">
+                                    <div class="tab-menu-text">
+                                        <h4>{% trans "Best Sale " %}</h4>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#home3" data-toggle="tab">
+                                    <div class="tab-menu-text">
+                                        <h4>{% trans "Top Rated" %}</h4>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="tab-content another-product-style jump">
+                        <div class="tab-pane active" id="home1">
+                            <div class="row">
+                                <div class="product-slider-active2">
+                                    {% for product in jewelary_latest %}
+                                    <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
+                                        <div class="product">
+                                            <div class="product__inner">
+                                                <div class="pro__thumb">
+                                                    <a href="{% url 'product_detail' product.slug %}">
+                                                        <img src="{{product.img.url}}" alt="product images">
+                                                    </a>
+                                                </div>
+                                                <div class="product__hover__info">
+                                                    <ul class="product__action">
+                                                        
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Add TO Cart"><span
+                                                                    class="ti-shopping-cart"></span></a></li>
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Wishlist"><span class="ti-heart"></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product__details">
+                                                <h2><a
+                                                        href="{% url 'product_detail' product.slug %}">{{product.name}}</a>
+                                                </h2>
+                                                <ul class="product__price">
+                                                    {%if product.old_price %}
+                                                    <li class="old__price">$ {{ product.old_price|floatformat:2 }}</li>
+                                                    {% endif %}
+                                                    <li class="new__price">$ {{ product.new_price|floatformat:2 }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane" id="home2">
+                            <div class="row">
+                                <div class="product-slider-active2">
+                                    {% for product in best_sales_jw %}
+                                    <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
+                                        <div class="product">
+                                            <div class="product__inner">
+                                                <div class="pro__thumb">
+                                                    <a href="{% url 'product_detail' product.product_id.slug %}">
+                                                        <img src="{{product.product_id.img.url}}" alt="product images">
+                                                    </a>
+                                                </div>
+                                                <div class="product__hover__info">
+                                                    <ul class="product__action">
+                                                        
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.product_id.pk }}"><a
+                                                                title="Add TO Cart"><span
+                                                                    class="ti-shopping-cart"></span></a></li>
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.product_id.pk }}"><a
+                                                                title="Wishlist"><span class="ti-heart"></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product__details">
+                                                <h2><a
+                                                        href="{% url 'product_detail' product.product_id.slug %}">{{product.product_id.name}}</a>
+                                                </h2>
+                                                <ul class="product__price">
+                                                    {%if product.product_id.old_price %}
+                                                    <li class="old__price">$ {{ product.product_id.old_price|floatformat:2 }}</li>
+                                                    {% endif %}
+                                                    <li class="new__price">$ {{ product.product_id.new_price|floatformat:2 }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="home3">
+                            <div class="row">
+                                <div class="product-slider-active2">
+                                    {% for product in top_rateds_jw %}
+                                    <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
+                                        <div class="product">
+                                            <div class="product__inner">
+                                                <div class="pro__thumb">
+                                                    <a href="{% url 'product_detail' product.slug %}">
+                                                        <img src="{{product.img.url}}" alt="product images">
+                                                    </a>
+                                                </div>
+                                                <div class="product__hover__info">
+                                                    <ul class="product__action">
+                                                        
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Add TO Cart"><span
+                                                                    class="ti-shopping-cart"></span></a></li>
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Wishlist"><span class="ti-heart"></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product__details">
+                                                <h2><a
+                                                        href="{% url 'product_detail' product.slug %}">{{product.name}}</a>
+                                                </h2>
+                                                <ul class="product__price">
+                                                    {%if product.old_price %}
+                                                    <li class="old__price">$ {{ product.old_price|floatformat:2 }}</li>
+                                                    {% endif %}
+                                                    <li class="new__price">$ {{ product.new_price|floatformat:2 }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Our Product Area -->
+<div class="only-banner ptb--100 bg__white">
+    <div class="container">
+        <div class="only-banner-img">
+            <a href="{% url 'product' %}"><img src="{% static 'images/new-product/6.jpg' %}" alt="new product"></a>
+        </div>
+    </div>
+</div>
+<!-- Start Our Product Area -->
+<section class="htc__product__area pb--100 bg__white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="product-categories-all">
+                    {% for category in categories %}
+
+                    {% if category.category_name == "Bags" or category.category_name == "Çantalar"%}
+
+                    <div class="product-categories-title">
+                        <h3>{{category.category_name}}</h3>
+                    </div>
+                    <div class="product-categories-menu">
+                        <ul>
+                            {% for sub_category in categories %}
+                            {% if sub_category.parent_category_name == category %}
+                            <li><a
+                                    href="{% url 'product' %}?category={{sub_category.category_name}}">{{sub_category.category_name}}</a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="product-style-tab">
+                    <div class="product-tab-list">
+                        <!-- Nav tabs -->
+                        <ul class="tab-style" role="tablist">
+                            <li class="active">
+                                <a href="#home5" data-toggle="tab">
+                                    <div class="tab-menu-text">
+                                        <h4>{% trans "Latest " %}</h4>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#home6" data-toggle="tab">
+                                    <div class="tab-menu-text">
+                                        <h4>{% trans "Best sale " %}</h4>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#home7" data-toggle="tab">
+                                    <div class="tab-menu-text">
+                                        <h4>{% trans "Top rated" %}</h4>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="tab-content another-product-style jump">
+                        <div class="tab-pane active" id="home5">
+                            <div class="row">
+                                <div class="product-slider-active2">
+                                    {% for product in bags_latest %}
+                                    <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
+                                        <div class="product">
+                                            <div class="product__inner">
+                                                <div class="pro__thumb">
+                                                    <a href="{% url 'product_detail' product.slug %}">
+                                                        <img src="{{product.img.url}}" alt="product images">
+                                                    </a>
+                                                </div>
+                                                <div class="product__hover__info">
+                                                    <ul class="product__action">
+                                                        
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Add TO Cart"><span
+                                                                    class="ti-shopping-cart"></span></a></li>
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Wishlist"><span class="ti-heart"></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product__details">
+                                                <h2><a
+                                                        href="{% url 'product_detail' product.slug %}">{{product.name}}</a>
+                                                </h2>
+                                                <ul class="product__price">
+                                                    {%if product.old_price %}
+                                                    <li class="old__price">$ {{ product.old_price|floatformat:2 }}</li>
+                                                    {% endif %}
+                                                    <li class="new__price">$ {{ product.new_price|floatformat:2 }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="home6">
+                            <div class="row">
+                                <div class="product-slider-active2">
+                                    {% for product in best_sales_bg %}
+                                    <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
+                                        <div class="product">
+                                            <div class="product__inner">
+                                                <div class="pro__thumb">
+                                                    <a href="{% url 'product_detail' product.product_id.slug %}">
+                                                        <img src="{{product.product_id.img.url}}" alt="product images">
+                                                    </a>
+                                                </div>
+                                                <div class="product__hover__info">
+                                                    <ul class="product__action">
+                                                        
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.product_id.pk }}"><a
+                                                                title="Add TO Cart"><span
+                                                                    class="ti-shopping-cart"></span></a></li>
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.product_id.pk }}"><a
+                                                                title="Wishlist"><span class="ti-heart"></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="product__details">
+                                                <h2><a
+                                                        href="{% url 'product_detail' product.product_id.slug %}">{{product.product_id.name}}</a>
+                                                </h2>
+                                                <ul class="product__price">
+                                                    {%if product.product_id.old_price %}
+                                                    <li class="old__price">$ {{product.product_id.old_price|floatformat:2 }}</li>
+                                                    {% endif %}
+                                                    <li class="new__price">$ {{product.product_id.new_price|floatformat:2 }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="home7">
+                            <div class="row">
+                                <div class="product-slider-active2">
+                                    {% for product in top_rateds_bg %}
+                                    <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
+                                        <div class="product">
+                                            <div class="product__inner">
+                                                <div class="pro__thumb">
+                                                    <a href="{% url 'product_detail' product.slug %}">
+                                                        <img src="{{product.img.url}}" alt="product images">
+                                                    </a>
+                                                </div>
+                                                <div class="product__hover__info">
+                                                    <ul class="product__action">
+                                                        
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Add TO Cart"><span
+                                                                    class="ti-shopping-cart"></span></a></li>
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Wishlist"><span class="ti-heart"></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product__details">
+                                                <h2><a
+                                                        href="{% url 'product_detail' product.slug %}">{{product.name}}</a>
+                                                </h2>
+                                                <ul class="product__price">
+                                                    {%if product.old_price %}
+                                                    <li class="old__price">$ {{ product.old_price|floatformat:2 }}</li>
+                                                    {% endif %}
+                                                    <li class="new__price">$ {{ product.new_price|floatformat:2 }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Our Product Area -->
+<div class="only-banner bg__white">
+    <div class="container">
+        <div class="only-banner-img">
+            <a href="{% url 'product' %}"><img src="{% static 'images/new-product/7.jpg' %}" alt="new product"></a>
+        </div>
+    </div>
+</div>
+<!-- Start Our Product Area -->
+<section class="htc__product__area ptb--100 bg__white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="product-categories-all">
+                    {% for category in categories %}
+
+                    {% if category.category_name == "Kids" or category.category_name == "Uşaqlar" %}
+
+                    <div class="product-categories-title">
+                        <h3>{{category.category_name}}</h3>
+                    </div>
+                    <div class="product-categories-menu">
+                        <ul>
+                            {% for sub_category in categories %}
+                            {% if sub_category.parent_category_name == category %}
+                            <li><a
+                                    href="{% url 'product' %}?category={{sub_category.category_name}}">{{sub_category.category_name}}</a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="product-style-tab">
+                    <div class="product-tab-list">
+                        <!-- Nav tabs -->
+                        <ul class="tab-style product-tab-list-btn" role="tablist">
+                            <li class="active">
+                                <a href="#home9" data-toggle="tab">
+                                    <div class="tab-menu-text">
+                                        <h4>{% trans "Latest " %}</h4>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#home10" data-toggle="tab">
+                                    <div class="tab-menu-text">
+                                        <h4>{% trans "Best sale " %}</h4>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#home11" data-toggle="tab">
+                                    <div class="tab-menu-text">
+                                        <h4>{% trans "Top rated" %}</h4>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="all-product-btn">
+                            <a href="{% url 'product' %}">{% trans "all" %}</a>
+                        </div>
+                    </div>
+                    <div class="tab-content another-product-style">
+                        <div class="tab-pane active" id="home9">
+                            <div class="row">
+                                <div class="product-slider-active2">
+                                    {% for product in kids_latest %}
+                                    <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
+                                        <div class="product">
+                                            <div class="product__inner">
+                                                <div class="pro__thumb">
+                                                    <a href="{% url 'product_detail' product.slug %}">
+                                                        <img src="{{product.img.url}}" alt="product images">
+                                                    </a>
+                                                </div>
+                                                <div class="product__hover__info">
+                                                    <ul class="product__action">
+                                                        
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Add TO Cart"><span
+                                                                    class="ti-shopping-cart"></span></a></li>
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Wishlist"><span class="ti-heart"></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product__details">
+                                                <h2><a
+                                                        href="{% url 'product_detail' product.slug %}">{{product.name}}</a>
+                                                </h2>
+                                                <ul class="product__price">
+                                                    {%if product.old_price %}
+                                                    <li class="old__price">$ {{ product.old_price|floatformat:2 }}</li>
+                                                    {% endif %}
+                                                    <li class="new__price">$ {{ product.new_price|floatformat:2 }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="home10">
+                            <div class="row">
+                                <div class="product-slider-active2">
+                                    {% for product in best_sales_kd %}
+                                    <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
+                                        <div class="product">
+                                            <div class="product__inner">
+                                                <div class="pro__thumb">
+                                                    <a href="{% url 'product_detail' product.product_id.slug %}">
+                                                        <img src="{{product.product_id.img.url}}" alt="product images">
+                                                    </a>
+                                                </div>
+                                                <div class="product__hover__info">
+                                                    <ul class="product__action">
+                                                        
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.product_id.pk }}"><a
+                                                                title="Add TO Cart"><span
+                                                                    class="ti-shopping-cart"></span></a></li>
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.product_id.pk }}"><a
+                                                                title="Wishlist"><span class="ti-heart"></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product__details">
+                                                <h2><a
+                                                        href="{% url 'product_detail' product.product_id.slug %}">{{product.product_id.name}}</a>
+                                                </h2>
+                                                <ul class="product__price">
+                                                    {%if product.product_id.old_price %}
+                                                    <li class="old__price">$ {{product.product_id.old_price|floatformat:2 }}</li>
+                                                    {% endif %}
+                                                    <li class="new__price">$ {{product.product_id.new_price|floatformat:2 }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="home11">
+                            <div class="row">
+                                <div class="product-slider-active2">
+                                    {% for product in top_rateds_kd %}
+                                    <div class="col-md-4 single__pro col-lg-4 cat--1 col-sm-4 col-xs-12">
+                                        <div class="product">
+                                            <div class="product__inner">
+                                                <div class="pro__thumb">
+                                                    <a href="{% url 'product_detail' product.slug %}">
+                                                        <img src="{{product.img.url}}" alt="product images">
+                                                    </a>
+                                                </div>
+                                                <div class="product__hover__info">
+                                                    <ul class="product__action">
+                                                        
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Add TO Cart"><span
+                                                                    class="ti-shopping-cart"></span></a></li>
+                                                        <li onclick="functionAddToWishlist($(this).attr('data'))"
+                                                            id="add-wishlist" data="{{ product.pk }}"><a
+                                                                title="Wishlist"><span class="ti-heart"></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product__details">
+                                                <h2><a
+                                                        href="{% url 'product_detail' product.slug %}">{{product.name}}</a>
+                                                </h2>
+                                                <ul class="product__price">
+                                                    {%if product.old_price %}
+                                                    <li class="old__price">$ {{ product.old_price|floatformat:2 }}</li>
+                                                    {% endif %}
+                                                    <li class="new__price">$ {{ product.new_price|floatformat:2 }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Our Product Area -->
+<!-- Start Blog Area -->
+<section class="htc__blog__area bg__white pb--130">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section__title section__title--2 text-center">
+                    <h2 class="title__line">{% trans "Latest" %}</h2>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="blog__wrap clearfix mt--60 xmt-30">
+                <!-- Start Single Blog -->
+                {% for latest in products_latest %}
+                <div class="col-md-4 col-lg-4 hidden-sm col-xs-12">
+                    <div class="blog foo">
+                        <div class="blog__inner">
+                            <div class="blog__thumb">
+                                <a href="{% url 'product_detail' latest.slug %}">
+                                    <img src="{{ latest.img.url }}" alt="blog images">
+                                </a>
+                                <div class="blog__post__time">
+                                    <div class="post__time--inner">
+                                        <span class="date">{{ latest.created_at|date:"d, b"}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog__hover__info">
+                                <div class="blog__hover__action">
+                                    <p class="blog__des"><a href="{{ latest.img.url }}">{{ latest.description}}</a></p>
+                                    <div class="blog__btn">
+                                        <a class="read__more__btn" href="{% url 'product_detail' latest.slug %}">{% trans "read more" %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- End Single Blog -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Blog Area -->
+{% endblock content %}
+{% block js %}
+<script src="{% static 'js/wishlist.js'%}"></script>
+<script src="{% static 'js/cart.js'%}"></script>
+<script src="{% static 'js/product_fetch.js'%}"></script>
+{% endblock js %}

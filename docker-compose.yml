@@ -1,0 +1,64 @@
+version: '3.9'
+services:
+  db:
+      image: postgres:13
+      ports:
+        - 5432:5432
+      restart: always
+      volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+      environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust 
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+    command: redis-server
+    volumes:
+      - redisdata:/data
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust 
+  web:
+    build: .
+    command: gunicorn Tmart.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/code
+      - static_volume:/code/staticfiles
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+      - redis
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust  
+  celery:
+    restart: always
+    build:
+      context: .
+    command: celery -A Tmart worker --pool=solo -l info
+  
+    volumes:
+      - .:/code   
+    # env_file:
+    #   - ./.dev
+    depends_on:
+      - db
+      - redis
+      - web
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust 
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+    depends_on:
+      - web
+volumes:
+  dbdata:
+  static_volume:
+  media_volume:
+  redisdata:
+    external: false
